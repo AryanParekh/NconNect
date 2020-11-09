@@ -1,0 +1,48 @@
+{% extends 'ngo_navigation.html' %}
+{% load static %}
+{% block  user_body %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+
+    <div class="container">
+      <h1>{{ngo_details.ngo_name}}</h1>
+      <hr>
+      <p>{{ngo_details.description}}</p>
+      <hr>
+      <img src="{{ngo_details.image.url}}" alt="" height="80%" width="80%">
+      <br><br><br>
+      <hr>
+      <h2 class="text-center">{{ngo_details.ngo_name}}'s Requirements</h2>
+      <hr>
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Sr no.</th>
+            <th>Requirement</th>
+            <th>Quantity Required</th>
+            <th>Message for Donor</th>
+            <th>Action</th>
+
+          </tr>
+            {% for i in ngo_req %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{i.requirement}}</td>
+              <td>{{i.quantity}}</td>
+              <td>{{i.message}}</td>
+              <td>
+                <a href="{% url 'ngo_edit_requirement' i.id %}"><i class='far fa-edit'></i></a>
+                <a href="{% url 'ngo_delete_requirement' i.id %}" style="color:red"><i class='far fa-trash-alt'></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+            <br>
+        </thead>
+      </table>
+      <br><br><br><br><br><br>
+    </div>
+  </div>
+</section>
+{% endblock %}

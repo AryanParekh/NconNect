@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/nconnect.css' %}">
+  <title>NcoNnect</title>
+  <script>
+    function number_validator(){
+      let a = document.getElementById("mobile").value;
+      if(a.length==13 && a.slice(0,3)=="+91"){
+        a=a.slice(3,a.length);
+      }
+      else if(a.length==14 && a.slice(0,4)=="+91 "){
+        a=a.slice(4,a.length);
+      }
+      if(isNaN(a)){
+        document.getElementById("alert").innerHTML="** PLEASE FILL ONLY NUMBERS";
+        return false;
+      }
+      else if(a.length!=10){
+        document.getElementById("alert").innerHTML="** PLEASE ENTER A 10 DIGIT NUMBER";
+        return false;
+      }
+      else if(a.charAt(0)!='9' && a.charAt(0)!='8' && a.charAt(0)!='7'){
+        document.getElementById("alert").innerHTML="** PLEASE ENTER NUMBER STARTING FROM 9,8 OR 7";
+        return false;
+      }
+    }
+  </script>
+
+</head>
+<body>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero"><h1><span>N</span>con<span>n</span>ect</h1></a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger"><div class="bar"></div></div>
+          <ul>
+            <!-- data after has been added to have a background effect -->
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="{% url 'user_signup' %}" data-after="Donor">Donor</a></li>
+            <li><a href="{% url 'ngo_signup' %}" data-after="NGO">NGO</a></li>
+            <li><a href="{% url 'adminlogin' %}" data-after="Admin">Admin</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+    {% block design_body %}
+    {% endblock %}
+    <!-- Footer -->
+    <section id="footer">
+      <div class="footer container">
+        <div class="brand"><h1><span>T</span>hank <span>Y</span>ou</h1></div>
+        <h2>For Visiting!</h2>
+        <div class="social-icon">
+          <div class="social-item">
+            <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png"/></a>
+          </div>
+          <div class="social-item">
+            <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png"/></a>
+          </div>
+          <div class="social-item">
+            <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png"/></a>
+          </div>
+        </div>
+        <p>Copyright © 2020 nconnect. All rights reserved</p>
+      </div>
+    </section>
+    <!-- End Footer -->
+    <script src="{% static 'js/nconnect.js' %}"></script>
+  </body>
+  </html>

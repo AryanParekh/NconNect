@@ -1,0 +1,57 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block  user_body %}
+
+{% ifequal error "no" %}
+<script>
+  alert("Donations Made Successfully! The NGO will get in touch with you for the same! :)");
+  window.location=('{% url 'user_profile' %}')
+</script>
+{% endifequal %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+
+    <div class="container">
+      <h1>{{ngo_details.ngo_name}}</h1>
+      <hr>
+      <p>{{ngo_details.description}}</p>
+      <hr>
+      <img src="{{ngo_details.image.url}}" alt="" height="80%" width="80%">
+      <br><br><br>
+      <hr>
+      <h2 class="text-center">{{ngo_details.ngo_name}}'s Requirements</h2>
+      <hr>
+      <form  method="post">
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Sr no.</th>
+            <th>Requirement</th>
+            <th>Quantity Required</th>
+            <th>Message for Donor</th>
+            <th>Donation</th>
+
+          </tr>
+
+            {% csrf_token %}
+            {% for i in ngo_req %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{i.requirement}}</td>
+              <td>{{i.quantity}}</td>
+              <td>{{i.message}}</td>
+              <td><input type="number" min=0 name="donation{{i.id}}" value=""></td>
+            </tr>
+            {% endfor %}
+            <br>
+        </thead>
+      </table>
+      <button class='signup-btn' type="submit" name="submit" >SUBMIT</button>
+      <br><br><br><br><br><br>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

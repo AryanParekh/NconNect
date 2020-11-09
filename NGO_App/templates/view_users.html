@@ -1,0 +1,70 @@
+{% extends 'adminnavigation.html' %}
+{% load static %}
+{% block admin_body %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+    <div class="container">
+      <h2 class="text-center">LIST OF USERS</h2>
+      <hr>
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Sr. No</th>
+            <th>Name</th>
+            <th>Email ID</th>
+            <th>Contact</th>
+            <th>Address</th>
+          </tr>
+          {% for i in users %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td style='text-transform:capitalize;'>{{i.user.first_name}} {{i.user.last_name}}</td>
+            <td>{{i.user.username}}</td>
+            <td>{{i.contact}}</td>
+            <td>{{i.city}},{{i.state}}</td>
+          </tr>
+          {% endfor %}
+        </thead>
+      </table>
+    </div>
+    <div class="container">
+      <h2 class="text-center">NGO's</h2>
+      <hr>
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Reg. No</th>
+            <th>NGO Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Certificate</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          {% for i in ngos %}
+          <tr>
+            <td>{{i.registration_number}}</td>
+            <td>{{i.ngo_name}}</td>
+            <td>{{i.user.username}}</td>
+            <td>{{i.contact}}</td>
+            <td><a href="{{i.certificate.url}}">View Certificate</a></td>
+            {% if i.verfied%}
+            <td>Verified</td>
+            <td><a href="{% url 'delete_ngo_2' i.id %}" style="color:red;font-size:20px;"><i class="fa fa-times" ></i></a></td>
+            {% else %}
+            <td>Not Verified</td>
+            <td>
+              <a href="{% url 'verify_ngo' i.id %}" style="color:green;font-size:20px;"><i class="fa fa-check" ></i></a>
+              <a href="{% url 'delete_ngo_2' i.id %}" style="color:red;font-size:20px;"><i class="fa fa-times" ></i></a>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </thead>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

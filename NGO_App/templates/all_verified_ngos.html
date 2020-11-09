@@ -1,0 +1,34 @@
+{% extends 'adminnavigation.html' %}
+{% load static %}
+{% block admin_body %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+    <div class="container">
+      <h2 class="text-center">VALIDATED NGO's</h2>
+      <hr>
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Reg. No</th>
+            <th>NGO Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Certificate</th>
+          </tr>
+          {% for i in ngos %}
+          <tr>
+            <td>{{i.registration_number}}</td>
+            <td>{{i.ngo_name}}</td>
+            <td>{{i.user.username}}</td>
+            <td>{{i.contact}}</td>
+            <td><a href="{{i.certificate.url}}">View Certificate</a></td>
+          </tr>
+          {% endfor %}
+        </thead>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

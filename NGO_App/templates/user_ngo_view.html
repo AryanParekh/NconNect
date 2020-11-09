@@ -1,0 +1,41 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block  user_body %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+
+    <div class="container">
+      <h2 class="text-center">NGO's</h2>
+      <p class="text-danger" style="font-size:14px;">Note: You are allowed to make donations to the NGO's that may not have requirement of that particular item anymore,
+      but we would suggest you to check out the other NGO's and help the NGO's that may be needing that donation.</p>
+      <hr>
+      <table class="table table-bordered" id=mytable>
+        <thead>
+          <tr>
+            <th>Reg. No</th>
+            <th>NGO Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Certificate</th>
+            <th>About NGO</th>
+
+          </tr>
+          {% for i in ngos %}
+          <tr>
+            <td>{{i.registration_number}}</td>
+            <td>{{i.ngo_name}}</td>
+            <td>{{i.user.username}}</td>
+            <td>{{i.contact}}</td>
+            <td><a href="{{i.certificate.url}}">View Certificate</a></td>
+            <td><a href="{% url 'user_ngo_information' i.id %}">Click to learn More</a></td>
+
+          </tr>
+          {% endfor %}
+        </thead>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

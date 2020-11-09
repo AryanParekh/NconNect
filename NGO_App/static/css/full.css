@@ -1,0 +1,235 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body{
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  overflow-x: scroll;
+}
+
+
+/* Utility classes */
+.container{
+  max-width: 1100px;
+  margin: auto;
+}
+.text-yellow{
+  color: #FFC300;
+}
+
+.text-primary{
+  color: #3693ff;
+}
+
+.bg-light{
+  background: #f4f4f4;
+  color: #333;
+}
+.bg-medium{
+  background: #D1D1D1;
+  color: #333;
+}
+.bg-dark{
+  background: #333;
+  color: #fff;
+}
+
+/* navbar */
+#navbar{
+  display: flex;
+  justify-content: space-between;
+  background:black;
+  color: #fff;
+  padding: 1.5rem 8rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 3px solid #3693ff;
+}
+
+#navbar ul{
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar h2 a{
+  font-size: 3rem;
+  text-align: left;
+  color: #fff;
+  text-decoration: none;
+}
+#navbar li a{
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.35s;
+}
+#navbar li a:hover{
+  background-color: #3693ff;
+}
+
+
+/* sliding effect */
+#sliding .maindiv{
+  width: 80%;
+  height: 600px;
+  position: absolute
+  background-image: url('../images/notes1.jpg'});
+  background-size: 100% 100%;
+  animation: slider 12s infinite linear;
+}
+@keyframes slider {
+  0%{background-image: url('../images/notes1.jpg');background-size: 100% 100%;}
+  50%{background-image: url('../images/notes2.jpg');background-size: 100% 100%;}
+  100%{background-image: url('../images/notes4.jpg');background-size: 100% 100%;}
+}
+#sliding .transparentbox{
+  width: 80%;
+  height: 600px;
+  opacity: 0.65;
+}
+
+
+/* steps to follow section */
+#steps .semicircle{
+  height: 80px;
+  width: 160px;
+  border-radius: 90px 90px 0px 0px;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+#steps .semicircleBottom{
+  height: 80px;
+  width: 160px;
+  border-radius: 0px 00px 90px 90px;
+  border: 1px solid white;
+  margin: 0;
+  background-color: #207BB4;
+}
+#steps .box-1 p{
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+/* footer */
+footer{
+  padding: 20rem;
+  border-top: 3px solid #3693ff;
+  /* border-bottom: 3px solid #3693ff; */
+}
+
+
+/* login page and admin login page*/
+#create-account-or-signin .create-acc-or-signin-btn,
+#adminlogin .adminlogin-btn{
+  width: 50%;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #3693ff;
+  color: #fff;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+#create-account-or-signin .create-acc-or-signin-btn:hover,
+#adminlogin .adminlogin-btn:hover{
+  background: #0378ff;
+}
+#create-account-or-signin .form-group input,
+#adminlogin .form-group input{
+  width: 50%;
+  font-size: 1rem;
+  padding: 1rem;
+  border: 0.5px solid #333;
+  border-radius: 5px;
+}
+
+
+/* signup page*/
+#signup .signup-btn{
+  width: 85%;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #3693FF;
+  color: #fff;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+#signup .signup-btn:hover{
+  background: #0378ff;
+}
+#signup .form-group input,
+#signup .form-group textarea{
+  width: 85%;
+  font-size: 1rem;
+  padding: 1rem;
+  border: 0.5px solid #333;
+  border-radius: 5px;
+}
+#signup .form-group select{
+  width: 85%;
+  font-size: 1rem;
+  border: 0.5px solid #333;
+  border-radius: 5px;
+}
+
+
+/* admin home */
+#adminhead{
+  z-index: 2;
+  background-image: url(../images/notes3.jpg) ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 80vh;
+}
+#adminhead .showcase-content{
+  /* display: flex; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border-bottom: : 3px solid #3693ff;
+}
+#adminhead .showcase-content h1{
+  font-size: 3rem;
+}
+#adminhome .box{
+  background-color: white;
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#adminhome .box-effect{
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#adminhome .box-effect:hover{
+  background: #0378ff;
+  transform:translateY(-10px);
+}
+/* submit btn small */

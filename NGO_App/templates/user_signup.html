@@ -1,0 +1,106 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% ifequal error "no" %}
+<script>
+  alert("Signed In Successfully! :)");
+  window.location=('{% url 'user_login' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+  alert("Something went wrong, please try again :(");
+</script>
+{% endifequal %}
+
+<section id="signup">
+  <div class="bg-light">
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="text-center">ARE YOU AN EXISTING USER?</h2>
+          <hr>
+          <center>
+          <p class="text-danger" style="font-size:14px;">(Note: You can't make donations if you don't have an account on this website)</p>
+          <br><br>
+          <a href="{% url 'user_login' %}" style="text-decoration:none" class='signup-btn' type="submit" name="submit" >LOG INTO THE ACCOUNT</a>
+          </center>
+        </div>
+
+        <div class="col-sm-6">
+          <h2>SIGN UP FOR DONOR</h2>
+          <hr>
+          <p class="text-warning" style="font-size:14px;">If you don't have an account,please register</p>
+          <div class="form-container">
+            <br>
+            <div class="form-box">
+              <form method="post" onsubmit="return number_validator()">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="first_name">First Name</label><br>
+                  <input id="first_name" type="text" placeholder="Enter Firstname" name="first_name"><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="last_name">Last Name</label><br>
+                  <input id="last_name" type="text" placeholder="Enter Lastname" name="last_name" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email ID</label><br>
+                  <input id='email' type="email" placeholder="Enter email" name="emailid"><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password</label><br>
+                  <input id="password" type="password" placeholder="Enter password" name="password" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="mobile">Mobile Number</label><br>
+                  <input id='mobile' type="text" placeholder="Enter Mobile Number" name="contact">
+                  <span id='alert' style='color:red;'></span><br>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="address_line_1">Address Line</label><br>
+                  <input id="address_line_1" type="text" placeholder="Enter address line 1" name="address_line_1" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="city">City</label><br>
+                  <input id="city" type="text" placeholder="Enter City" name="city" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="state">State</label><br>
+                  <input id="state" type="text" placeholder="Enter State" name="state" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="country">Country</label><br>
+                  <input id="country" type="text" placeholder="Enter Country" name="country" ><br>
+                </div>
+
+                <div class="form-group">
+                  <label for="pincode">Pincode</label><br>
+                  <input id="pincode" type="text" placeholder="Enter Pincode" name="pincode" ><br>
+                </div>
+
+
+                <button class='text-center signup-btn' type="submit" name="submit">SIGN UP</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}

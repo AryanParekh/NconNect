@@ -1,0 +1,40 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block user_body %}
+<section id="profile" class="bg-light ">
+  <div class="container ">
+    <br>
+    <h2 class="text-center mt-5">USER PROFILE</h2>
+    <hr>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <p><b>Full Name :</b></p>
+        <hr>
+        <p><b>Email ID :</b></p>
+        <hr>
+        <p><b>Contact Number :</b></p>
+        <hr>
+        <p><b>Address :</b></p>
+        <hr>
+        <p><b>Country :</b></p>
+        <hr>
+
+      </div>
+      <div class="col-md-6" >
+        <p style="text-transform:capitalize;">{{data.user.first_name}} {{data.user.last_name}}</p>
+        <hr>
+        <p>{{data.user.username}}</p>
+        <hr>
+        <p>{{data.contact}}</p>
+        <hr>
+        <p>{{data.address_line_1}} , {{data.city}} , {{data.state}} - {{data.pincode}}</p>
+        <hr>
+        <p>{{data.country}}</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
+
+{% endblock %}

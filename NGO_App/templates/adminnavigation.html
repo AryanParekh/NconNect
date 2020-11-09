@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NcoNnect</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/full.css' %}">
+
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav id='navbar'style="background-color:black;">
+        <h2><a href="#"><span class="text-primary">N</span>CON<span class="text-primary">N</span>ECT</a> Admin</h2>
+      <ul>
+
+        <li><a href="{% url 'adminhome' %}">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">NGO's</a>
+          <div class="dropdown-menu bg-medium">
+            <a class="dropdown-item" href="{% url 'all_verified_ngos' %}">Validated NGO's</a>
+            <a class="dropdown-item" href="{% url 'all_nonverified_ngos'%}">Invalidated NGO's</a>
+          </div>
+        </li>
+        <li><a href="{% url 'view_users' %}">View Users</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+      </ul>
+    </nav>
+    <!-- navbar end -->
+    {% block admin_body %}
+    {% endblock %}
+    <!-- footer start -->
+    <footer style="background-color:black;">
+      <br><br><br><br><br><br>
+    </footer>
+    <!-- footer end  -->
+  </body>
+</html>

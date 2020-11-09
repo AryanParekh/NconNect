@@ -1,0 +1,173 @@
+{% extends 'design_navigation.html' %}
+{% load static %}
+{% block design_body %}
+<!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+  <!-- we have added span in the h1 tag to add the text reveal box animation -->
+        <h1>Hello, <span></span></h1>
+        <h1>We Are <span></span></h1>
+        <h1>NCONNECT <span></span></h1>
+        <a href="{% url 'user_signup' %}" type="button" class="cta"><span></span><span></span><span></span><span></span>Donate</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+<br></br>
+  <!-- Service Cum About Section -->
+  <section id="services">
+    <div >
+  <div class="section-header">
+    <h1 class="section-title">ABOUT <span>US</span></h1>
+  </div>
+  <div id="servicebody">
+    <div class ="service-main-container">
+    <br></br>
+    <div class="servicecontainer">
+        <div class="servicecard">
+            <div class="imgBx">
+                <img src="{% static 'images/whoarewe.jpg' %}">
+            </div>
+            <div class="servicecontent">
+                <h2>NconNect</h2>
+                <p>
+                    We are a group of like minded people who want to help during these trying times.
+                </p>
+            </div>
+        </div>
+        <div class="servicecard">
+            <div class="imgBx">
+                <img src="{% static 'images/ourmission.jpg' %}">
+            </div>
+            <div class="servicecontent">
+                <h2>Save Lives</h2>
+                <p>
+                    We are trying to save lives of those who are affected by covid-19.
+                </p>
+            </div>
+        </div>
+        <div class="servicecard">
+            <div class="imgBx">
+              <img src="{% static 'images/howwedoit.jpg' %}">
+            </div>
+            <div class="servicecontent">
+                <h2>NconNect</h2>
+                <p>
+                    By connecting NGOs with those kind enough to donate in money or kind.
+                </p>
+            </div>
+         </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </section>
+  <!-- End Service Section -->
+    <br></br>
+  <!--Display Section -->
+    <section id="why">
+      <div class="display-header">
+        <h1 class="section-title">WHY <span>DONATE?</span></h1>
+      </div>
+      <div class="display-body">
+       <div class="display-content"><span>Why to donate to a NGO to fight against Covid-19?</span>
+        As we know, the year 2020 did not go as many planned.
+        The out-break of this terrifying virus, covid-19, has
+        taken many lives and is only getting fiercer. To stop
+        the rapid growth of the mortality rate related to covid-19,
+        we should take an initiative by donating to NGOs who are trying
+        to provide the proper equipment to hospitals, who are trying
+        hard to fight against this virus.
+      </div>
+        <div class="box">
+            <span style="--i:1;"><img src="{% static 'images/covid.jpg' %}"></span>
+            <span style="--i:2;"><img src="{% static 'images/beds.jpg' %}"></span>
+            <span style="--i:3;"><img src="{% static 'images/masks.jpg' %}"></span>
+            <span style="--i:4;"><img src="{% static 'images/ppe.jpg' %}"></span>
+            <span style="--i:5;"><img src="{% static 'images/social_dist.jpg' %}"></span>
+            <span style="--i:6;"><img src="{% static 'images/money.jpg' %}"></span>
+            <span style="--i:7;"><img src="{% static 'images/giving.jpg' %}"></span>
+            <span style="--i:8;"><img src="{% static 'images/medicine.jpg' %}"></span>
+        </div>
+        </div>
+    </section>
+  <!-- End Display Section -->
+
+  <!-- How can You Help Section -->
+
+  <section id="projects">
+    <div class="projects container">
+      <div class="projects-header">
+        <h1 class="section-title">HOW CAN <span>YOU</span> HELP?</h1>
+      </div>
+      <div class="all-projects">
+        <div class="project-item">
+          <div class="project-info">
+            <a href="{% url 'user_signup' %}"><h1>STEP 1 </h1>
+            <h2>LOG IN/SIGN UP</h2>
+            <p>Click on the log in or sign up option in the navigation bar.</p>
+          </div>
+          <div class="project-img">
+            <img src="{% static 'images/join.jpg' %}" alt="img">
+          </div></a>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <a href="{% url 'user_signup' %}"><h1>STEP 2</h1>
+            <h2>SELECT NGO</h2>
+            <p>Select the NGO from the given list after viewing their profile.</p>
+          </div>
+          <div class="project-img">
+            <img src="{% static 'images/ngo.jpg' %}" alt="img">
+          </div></a>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <a href="{% url 'user_signup' %}"><h1>STEP 3</h1>
+            <h2>DONATE</h2>
+            <p>Fill in the required details, select the type of donation then click on donate now.</p>
+          </div>
+          <div class="project-img">
+            <img src="{% static 'images/donation.jpg' %}" alt="img">
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End How can You Help Section -->
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div><h1 class="section-title">Contact <span>info</span></h1></div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png"/></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>+91 9876543210</h2>
+            <h2>+91 8976543210</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png"/></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>nconnect.official@gmail.com</h2>
+            <h2>nconnect.help@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png"/></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>Mumbai, Maharashtra, India</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+{% endblock %}

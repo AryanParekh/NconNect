@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NcoNnect</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/full.css' %}">
+
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav id='navbar' style="background-color:black;">
+        <h2><a href="#"><span class="text-primary">N</span>CON<span class="text-primary">N</span>ECT</a></h2>
+      <ul>
+        <li><a href="{% url 'user_profile' %}">Profile</a></li>
+        <li><a href="{% url 'user_ngo_view' %}">NGO's</a></li>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">Welcome {{request.user.first_name}}</a>
+          <div class="dropdown-menu bg-medium">
+            <a class="dropdown-item" href="{% url 'user_profile' %}">View Profile</a>
+            <a class="dropdown-item" href="{% url 'changepassworduser'%}">Change Password</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- navbar end -->
+    {% block user_body %}
+    {% endblock %}
+    <!-- footer start -->
+    <footer style="background-color:black;">
+      <br><br><br><br><br><br>
+    </footer>
+    <!-- footer end  -->
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'ngo_navigation.html' %}
+{% load static %}
+{% block user_body %}
+<section id="profile" class="bg-light ">
+  <div class="container ">
+    <br>
+    <h2 class="text-center mt-5">NGO PROFILE</h2>
+    <center>
+    {% if data.verfied %}
+    <p class="text-success" style="font-size:16px;">Your NGO is Verified</p>
+    {% else %}
+    <p class="text-danger" style="font-size:16px;">Your NGO is not Verified yet</p>
+    {% endif %}
+    </center>
+    <hr>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <p><b>NGO Name :</b></p>
+        <hr>
+        <p><b>Registration Number :</b></p>
+        <hr>
+        <p><b>Email ID :</b></p>
+        <hr>
+        <p><b>Contact Number :</b></p>
+        <hr>
+        <p><b>Address :</b></p>
+        <hr>
+        <p><b>Country :</b></p>
+        <hr>
+        <p><b>Certifcate :</b></p>
+        <hr>
+        <p><b>Description :</b></p>
+        <br><br><br>
+        <hr>
+        <p><b>Image :</b></p>
+        <hr>
+
+      </div>
+      <div class="col-md-6" >
+        <p style="text-transform:capitalize;">{{data.ngo_name}}</p>
+        <hr>
+        <p>{{data.registration_number}}</p>
+        <hr>
+        <p>{{data.user.username}}</p>
+        <hr>
+        <p>{{data.contact}}</p>
+        <hr>
+        <p>{{data.address_line_1}} , {{data.city}} , {{data.state}} - {{data.pincode}}</p>
+        <hr>
+        <p>{{data.country}}</p>
+        <hr>
+        <p><a href="{{data.certificate.url}}">Click Here to View</a></p>
+        <hr>
+        <p>{{data.description}}</p>
+        <hr>
+        <p><img src="{{data.image.url}}" height="60%" width="60%" alt=""></p>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
+
+{% endblock %}

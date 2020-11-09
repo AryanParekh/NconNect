@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NcoNnect</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/full.css' %}">
+    <script>
+      function number_validator(){
+        let a = document.getElementById("mobile").value;
+        if(a.length==13 && a.slice(0,3)=="+91"){
+          a=a.slice(3,a.length);
+        }
+        else if(a.length==14 && a.slice(0,4)=="+91 "){
+          a=a.slice(4,a.length);
+        }
+        if(isNaN(a)){
+          document.getElementById("alert").innerHTML="** PLEASE FILL ONLY NUMBERS";
+          return false;
+        }
+        else if(a.length!=10){
+          document.getElementById("alert").innerHTML="** PLEASE ENTER A 10 DIGIT NUMBER";
+          return false;
+        }
+        else if(a.charAt(0)!='9' && a.charAt(0)!='8' && a.charAt(0)!='7'){
+          document.getElementById("alert").innerHTML="** PLEASE ENTER NUMBER STARTING FROM 9,8 OR 7";
+          return false;
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav id='navbar' style="background-color:black;">
+        <h2><a href="#"><span class="text-primary">N</span>CON<span class="text-primary">N</span>ECT</a></h2>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'user_signup' %}">Donor</a></li>
+        <li><a href="{% url 'ngo_signup'%}">NGO</a></li>
+        <li><a href="{% url 'adminlogin' %}">Admin</a></li>
+      </ul>
+    </nav>
+    <!-- navbar end -->
+    {% block body %}
+    {% endblock %}
+    <!-- footer start -->
+    <footer style="background-color:black;">
+      <br><br><br><br><br><br>
+    </footer>
+    <!-- footer end  -->
+  </body>
+</html>
